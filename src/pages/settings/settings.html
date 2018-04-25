@@ -14,7 +14,7 @@
 
 <ion-item>
 	<ion-label>Show Notifications</ion-label>
-	<ion-checkbox>Show Notifications</ion-checkbox>
+	<ion-checkbox [(ngModel)]="showNotifications" (ionChange)="toggleNotifications()">Show Notifications</ion-checkbox>
 </ion-item>
 
 <ion-input type="date-time" placeholder="Reminder"></ion-input>
