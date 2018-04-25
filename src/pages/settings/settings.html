@@ -8,7 +8,8 @@
 
 
 <ion-content padding>
-<ion-input type="text" placeholder="Insert Name"></ion-input>
+<ion-input type="text" [(ngModel)]="name" placeholder="Insert Name"></ion-input>
+<BUTTON ion-button (click)="addName()">Store Name</BUTTON>
 
 
 <ion-item>
