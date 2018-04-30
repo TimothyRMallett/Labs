@@ -21,11 +21,11 @@ export class SettingsPage {
   //public showNotifications:boolean;
   //public reminder = new Date();
   public settings = {
-    "name":"","showNotifications":false,"reminder":""
+    "name":"",
+    "showNotifications":false,
+    "reminder":""
   };
-  //public reminder: any;
-  //public remindered: any;// = new Date();
-  public reminderString: string;// = new Date();
+  public reminderString: string;
   public objString: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {

@@ -11,13 +11,13 @@ import { TabsPage } from '../pages/tabs/tabs';
 })
 export class MyApp {
   rootPage:any = TabsPage;
-  remindered = new Date(2000,1,12,1,0,0,0);
+  remindered = new Date(2001,1,12,1,0,0,0);
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private storage: Storage) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.storage.get("appSettings").then((val) => {
-      if(val == null){
+      if(val === null){
           this.storage.set("appSettings", JSON.stringify({name:"timbo", showNotifications: false, reminder: this.remindered.toISOString()}));
           //this.storage.set("appSettings", JSON.stringify({"name":"timbo", "showNotifications": false, "reminder": 200011100}));
         }
@@ -37,6 +37,10 @@ export class MyApp {
           this.storage.set("reminder", this.remindered.toISOString());
         }
     });
+      let stringer = this.storage.get("appSettings");
+      console.log(stringer);
+      console.log(this.storage.get("reminder"));
+      console.log(this.storage.get("name"));
       statusBar.styleDefault();
       splashScreen.hide();
     });
