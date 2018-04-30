@@ -8,15 +8,18 @@
 
 
 <ion-content padding>
-<ion-input type="text" [(ngModel)]="name" placeholder="Insert Name"></ion-input>
-<BUTTON ion-button (click)="addName()">Store Name</BUTTON>
+<ion-input type="text" [(ngModel)]="settings.name" placeholder="Insert Name"></ion-input>
+<BUTTON ion-button (click)="changeSettings()">Store Name</BUTTON>
 
 
 <ion-item>
 	<ion-label>Show Notifications</ion-label>
-	<ion-checkbox [(ngModel)]="showNotifications" (ionChange)="toggleNotifications()">Show Notifications</ion-checkbox>
+	<ion-checkbox [(ngModel)]="settings.showNotifications" (ionChange)="changeSettings">Show Notifications</ion-checkbox>
+</ion-item>
+<ion-item>
+	<ion-label>Reminder</ion-label>
+<ion-datetime displayFormat="HH:mm DD/MM/YYYY"[(ngModel)]="settings.reminder" (ionChange)="changeSettings"></ion-datetime>
 </ion-item>
 
-<ion-input type="date-time" placeholder="Reminder"></ion-input>
-
 </ion-content>
+

@@ -17,35 +17,39 @@ import { Storage } from '@ionic/storage';
 })
 export class SettingsPage {
 
-	public name = "sting";
-  public showNotifications:boolean;
-  public settings = {name:"", showNotifications: false, reminder: ""};
+	//public name = "sting";
+  //public showNotifications:boolean;
+  //public reminder = new Date();
+  public settings = {
+    "name":"","showNotifications":false,"reminder":""
+  };
+  //public reminder: any;
+  //public remindered: any;// = new Date();
+  public reminderString: string;// = new Date();
+  public objString: string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+ 
     this.storage.get("appSettings").then((val) => {
-      this.settings = val;
-      this.name = val.name;
-      this.showNotifications = val.notifications;
-    });
-    console.log(this.settings.name, this.settings.showNotifications, this.name, this.showNotifications);
+      this.objString = val;
+      this.settings = JSON.parse(val);
+      //this.name = this.settings.name;
+      //this.showNotifications = this.settings.showNotifications;
+      this.reminderString = this.settings.reminder;
+
+      console.log(val);
+      //console.log(this.name, this.showNotifications, this.reminderString);
+      });
+
   }
 
 
-  addName(){
-  	console.log(this.settings.name);
-    console.log(this.settings.showNotifications);
-    console.log(this.name);
-    console.log(this.showNotifications);
-  	//this.storage.set("name", this.name);
-  }
-
-  toggleNotifications(){
-    
-    console.log(this.showNotifications);
+  changeSettings(){
+  	this.storage.set("appSettings", JSON.stringify(this.settings));
   }
 
 }
