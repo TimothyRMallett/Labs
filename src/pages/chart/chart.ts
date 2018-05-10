@@ -11,7 +11,7 @@ import { Chart } from 'chart.js';
 })
 export class ChartPage {
 
-	@ViewChild('barCanvas')barCanvas;
+	@ViewChild('barChartCanvas')barCanvas;
 	barChart: any;
 
 	public chartData:Array<any> = [

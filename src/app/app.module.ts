@@ -10,6 +10,7 @@ import { HomePage } from '../pages/home/home';
 import { SettingsPage } from '../pages/settings/settings';
 import { AddContactPage } from '../pages/add-contact/add-contact';
 import { ChartPage } from '../pages/chart/chart';
+import { MapPage } from '../pages/map/map';
 
 import { TabsPage } from '../pages/tabs/tabs';
 
@@ -26,7 +27,8 @@ import { Chart } from 'chart.js';
     TabsPage,
     SettingsPage,
     AddContactPage,
-    ChartPage
+    ChartPage,
+    MapPage
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { Chart } from 'chart.js';
     TabsPage,
     SettingsPage,
     AddContactPage,
-    ChartPage
+    ChartPage,
+    MapPage
   ],
   providers: [
     StatusBar,
