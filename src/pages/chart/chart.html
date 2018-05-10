@@ -9,13 +9,17 @@
 
 <ion-content padding>
 
+  <ion-item>
+    <ion-input type="tel"[(ngModel)]="chartNum" placeholder="Add to Chart"></ion-input>
+  </ion-item>
+
+  <button ion-button (click)="addToChart()">Add</button>
+
 	<ion-card>
-      <ion-card-header>
-        Bar Chart
-      </ion-card-header>
-      <ion-card-content>
-        <canvas #barChartCanvas></canvas>
-      </ion-card-content>
-    </ion-card>
+    <ion-card-header>Bar Chart</ion-card-header>
+    <ion-card-content>
+      <canvas #barChartCanvas></canvas>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
