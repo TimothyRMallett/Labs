@@ -26,7 +26,7 @@ export class ContactPage {
 	public test = ["this","is","a","list"];
 
   constructor(public navCtrl: NavController, public modCtrl: ModalController, public navParams: NavParams) {
-
+    
   }
 
   addContact(firstName: string, lastName: string, email: string){
