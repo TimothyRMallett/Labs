@@ -21,5 +21,7 @@
 <ion-datetime displayFormat="HH:mm DD/MM/YYYY"[(ngModel)]="settings.reminder" (ionChange)="changeSettings"></ion-datetime>
 </ion-item>
 
+<input #fileInput type="file" accept="image/*" (change)="imageSelected(fileInput.files)"/>
+<img src={{imgFile}}>
 </ion-content>
 

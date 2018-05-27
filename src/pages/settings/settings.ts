@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { Storage } from '@ionic/storage';
@@ -11,9 +11,9 @@ import { Storage } from '@ionic/storage';
 })
 export class SettingsPage {
 
-	//public name = "sting";
-  //public showNotifications:boolean;
-  //public reminder = new Date();
+  @ViewChild('fileInput')fileInput;
+  imgFile: any;
+
   public settings = {
     "name":"",
     "showNotifications":false,
@@ -39,11 +39,25 @@ export class SettingsPage {
       //console.log(this.name, this.showNotifications, this.reminderString);
       });
 
+
   }
 
 
   changeSettings(){
   	this.storage.set("appSettings", JSON.stringify(this.settings));
+  }
+
+  imageSelected(files){
+    
+    let fileReader = new FileReader();
+
+    fileReader.onload = e => {
+      this.imgFile = fileReader.result;
+      this.storage.set("image", this.imgFile);
+    }
+
+    fileReader.readAsDataURL(files[0]);
+
   }
 
 }
